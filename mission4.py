@@ -1,6 +1,7 @@
 import os
 import glob
 import time
+import urllib2
 
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
@@ -28,6 +29,8 @@ def read_temp():
         return temp_c, temp_f
 	
 while True:
+	temp_c, temp_f = read_temp()
+	html = urllib2.urlopen("https://api.thingspeak.com/update?api_key=OS0R39EAB2VJ67WU&field1="+str(temp_c))
 	print(read_temp())	
-	time.sleep(1)
+	time.sleep(10)
 
