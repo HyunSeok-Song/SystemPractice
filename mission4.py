@@ -2,6 +2,10 @@ import os
 import glob
 import time
 import urllib2
+import RPi.GPIO as GPIO
+
+GREEN=13
+RED=11
 
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
@@ -9,6 +13,12 @@ os.system('modprobe w1-therm')
 base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1_slave'
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(GREEN, GPIO.OUT)
+GPIO.setup(RED, GPIO.OUT)
+
+GPIO.output(GREEN, GPIO.LOW)
+GPIO.output(RED, GPIO.LOW)
 
 def read_temp_raw():
     f = open(device_file, 'r')
@@ -30,7 +40,12 @@ def read_temp():
 	
 while True:
 	temp_c, temp_f = read_temp()
-	html = urllib2.urlopen("https://api.thingspeak.com/update?api_key=OS0R39EAB2VJ67WU&field1="+str(temp_c))
+	if(24<= int(temp_c) and int(temp_c) < 28):
+		GPIO.output(GREEN, GPIO.HIGH)
+	elif(int(temp_c) >= 28):
+		GPIO.output(GREEN, GPIO.LOW)
+		GPIO.output(RED, GPIO.HIGH)
 	print(read_temp())	
 	time.sleep(10)
 
+GPIO.cleanup()
