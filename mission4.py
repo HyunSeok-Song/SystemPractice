@@ -49,3 +49,4 @@ while True:
 	time.sleep(10)
 
 GPIO.cleanup()
+
