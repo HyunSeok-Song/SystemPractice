@@ -35,8 +35,5 @@ while True:
         print("send data to thingSpeak and DB" + str(temp_c))
         time.sleep(10)
 
-<<<<<<< HEAD
-=======
 GPIO.cleanup()
 
->>>>>>> 5d64896f80a1a99738b25255b1f8417a80680f0b
