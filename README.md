@@ -16,5 +16,5 @@ The "mission4.py" file transfers data collected using the DS18B20 temperature se
 The "data.txt" file contains the Celsius temperature values collected using the DS18B20 temperature sensor.
 
 
-Youtube link is:
+Youtube link is: https://www.youtube.com/watch?v=fQnCdBP5vA8
 
