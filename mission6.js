@@ -10,6 +10,7 @@ var connection = mysql.createConnection({
 })
 connection.connect();
 
+
 app.get('/graph', function (req, res) {
     console.log('got app.get(graph)');
     var html = fs.readFile('./graph1.html', function (err, html) {
