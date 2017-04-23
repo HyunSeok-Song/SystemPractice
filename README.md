@@ -1,6 +1,17 @@
 # SystemPractice
 
 
+<graph1.html, graph1.js>
+
+This program uses the node js server to access the database and retrieve the data. The imported data is shown on the web page using google line chart.
+
+YouTube link is: https://www.youtube.com/watch?v=h6saZyLluZA
+
+
+
+
+
+
 <MISSON4,5>
 
 
@@ -17,4 +28,6 @@ The "data.txt" file contains the Celsius temperature values collected using the 
 
 
 Youtube link is: https://www.youtube.com/watch?v=fQnCdBP5vA8
+
+
 
